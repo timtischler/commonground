@@ -2,11 +2,11 @@ class ChatsController < ApplicationController
   before_action :set_chat, only: [ :show, :destroy ]
 
   def index
-    @chats = Chat.order(created_at: :desc)
+    @chats = current_user.chats.order(created_at: :desc)
   end
 
   def new
-    @chat = Chat.new
+    @chat = current_user.chats.build
     @selected_model = params[:model]
     @chat_models = available_chat_models
   end
@@ -14,7 +14,7 @@ class ChatsController < ApplicationController
   def create
     prompt = params.dig(:chat, :prompt)
     if prompt.present?
-      @chat = Chat.create!(model: params.dig(:chat, :model).presence)
+      @chat = current_user.chats.create!(model: params.dig(:chat, :model).presence)
       ChatResponseJob.perform_later(@chat.id, prompt)
 
       redirect_to @chat, notice: "Chat was successfully created."
@@ -33,6 +33,8 @@ class ChatsController < ApplicationController
   private
 
   def set_chat
-    @chat = Chat.find(params[:id])
+    @chat = current_user.chats.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to chats_path, alert: "Chat not found."
   end
 end

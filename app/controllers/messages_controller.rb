@@ -16,6 +16,8 @@ class MessagesController < ApplicationController
   private
 
   def set_chat
-    @chat = Chat.find(params[:chat_id])
+    @chat = current_user.chats.find(params[:chat_id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to chats_path, alert: "Chat not found."
   end
 end
