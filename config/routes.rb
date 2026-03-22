@@ -7,6 +7,12 @@ Rails.application.routes.draw do
       post :refresh
     end
   end
+  get "login", to: "sessions#new"
+  delete "logout", to: "sessions#destroy"
+  get "auth/:provider/callback", to: "sessions#create"
+  get "auth/failure", to: "sessions#failure"
+  root "sessions#new"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

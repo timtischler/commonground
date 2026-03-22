@@ -68,3 +68,6 @@ end
 gem "ruby_llm", "~> 1.14"
 
 gem "dotenv-rails", "~> 3.2", groups: [:development, :test]
+
+gem "omniauth-google-oauth2", "~> 1.2"
+gem "omniauth-rails_csrf_protection", "~> 2.0"

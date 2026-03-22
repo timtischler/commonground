@@ -1,0 +1,9 @@
+<div style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+  <div style="text-align: center;">
+    <h1>CommonGround</h1>
+    <p>Sign in to start chatting</p>
+    <br>
+    <%= button_to "Sign in with Google", "/auth/google_oauth2", data: { turbo: false },
+        style: "display: inline-block; padding: 12px 24px; background: #4285F4; color: white; text-decoration: none; border-radius: 4px; font-size: 16px; border: none; cursor: pointer;" %>
+  </div>
+</div>
