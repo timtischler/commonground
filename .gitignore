@@ -1,1 +1,62 @@
+# Environment
 .env
+.env.*
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore all environment files (except templates).
+/.env*.local
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore storage (uploaded files in development and any SQLite databases).
+/storage/*
+!/storage/.keep
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+/config/credentials/*.key
+
+# Ignore precompiled assets.
+/public/assets
+
+# Ignore node_modules.
+/node_modules
+
+# Ignore yarn files.
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Ignore bootsnap cache.
+/tmp/cache/bootsnap/
+
+# Ignore vendor bundle.
+/vendor/bundle
+
+# SQLite databases
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
