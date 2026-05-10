@@ -65,7 +65,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "ruby_llm", "~> 1.14"
+gem "ruby_llm", "~> 1.15"
 
 gem "dotenv-rails", "~> 3.2", groups: [:development, :test]
 
